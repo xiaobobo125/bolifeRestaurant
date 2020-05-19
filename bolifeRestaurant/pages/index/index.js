@@ -4,10 +4,16 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    //轮播图
+    imgUrls: [
+      '../../images/banner-1.jpg',
+      '../../images/banner-2.jpg',
+      '../../images/banner-3.jpg'
+    ],
+    indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    duration: 1000
   },
   //事件处理函数
   bindViewTap: function() {
