@@ -1,41 +1,25 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/order/order",
-        "pages/mine/mine",
-        "pages/logs/logs"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#66cc33",
-        "navigationBarTitleText": "BoLife Restaurant",
-        "navigationBarTextStyle": "white"
-    },
-    "tabBar": {
-      "color": "#8a8a8a",
-      "selectedColor": "#FF9C35",
-      "borderStyle": "black",
-      "list": [
-        {
-          "selectedIconPath": "images/home_s.png",
-          "iconPath": "images/home.png",
-          "pagePath": "pages/index/index",
-          "text": "首页"
-        },
-        {
-          "selectedIconPath": "images/order_s.png",
-          "iconPath": "images/order.png",
-          "pagePath": "pages/order/order",
-          "text": "订单"
-        },
-        {
-          "selectedIconPath": "images/mine_s.png",
-          "iconPath": "images/mine.png",
-          "pagePath": "pages/mine/mine",
-          "text": "我的"
-        }
-      ]
-    },
-
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/index/index",
+    "pages/test/test",
+    "pages/login/login",
+    "pages/menu/menu",
+    "pages/order/order",
+    "pages/usermenu/usermenu",
+    "pages/severaddfood/severaddfood",
+    "pages/severadmin/severadmin",
+    "pages/severmenu/severmenu",
+    "pages/severalertfood/severalertfood",
+    "pages/info/info",
+    "pages/severinfo/severinfo",
+    "pages/pay/pay",
+    "pages/appraise/appraise"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "BoLife餐厅",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
 }

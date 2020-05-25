@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bolife.res.mapper.OverOrderMapper">
+    <resultMap id="cusOrderMap" type="com.bolife.res.entity.OverOrder">
+        <result column="ORDERID" property="orderId"/>
+        <result column="CUSID" property="cusId"/>
+        <result column="ORDERTIME" property="orderTime"/>
+        <result column="ORDERSTATE" property="orderState"/>
+        <result column="ORDERTOTLEPRICE" property="orderTotlePrice"/>
+        <result column="ORDERNUM" property="orderNum"/>
+    </resultMap>
+
+    <select id="getOverOrderByCusId" resultMap="cusOrderMap">
+        select * from overorder WHERE CUSID = #{cusId};
+    </select>
+</mapper>

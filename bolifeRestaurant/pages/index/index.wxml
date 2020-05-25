@@ -1,25 +1,7 @@
-<!-- index.wxml -->
-<view class="con">
-<!-- 顶部banner -->
-<view class="img-box">
-    <image src='../../images/2-1.jpg' class="image_ad"></image>
-  </view>
-<!-- 中部按钮 -->
-<view class='btn-bar'>
-    <view class='btn-block' bindtap='golist'>
-      <view class="btn_op1">开始订餐</view>
-    </view>
-    <view class='btn-block'>
-      <view class="btn_op2">预约订餐</view>
-    </view>
-  </view>
-<!-- 中部宣传 -->
-<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-<block wx:for="{{imgUrls}}" wx:key="item">
-  <swiper-item>
-    <image src="{{item}}" class="slide-image" />
-  </swiper-item>
-</block>
-</swiper>
-<!-- 底部banner -->
+<!--pages/index/index.wxml-->
+<view class="content1">
+  <image class='shows-img' src='../img/show.png'></image>
+  <text class="gettitle">开发者将获取一些用户权限</text>
+  <text class="getinfo">·获取你的公开信息（昵称、头像等）</text>
+  <button class='click-btn' type='primary' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">微信登录</button>
 </view>

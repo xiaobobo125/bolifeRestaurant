@@ -19,4 +19,6 @@
     <context:component-scan base-package="com.bolife.res"/>
     <!--开启mvc注解-->
     <mvc:annotation-driven />
+    <mvc:resources mapping="/images/**" location="/images/"/>
+    <mvc:resources mapping="/stylesheets/**" location="/stylesheets/"/>
 </beans>

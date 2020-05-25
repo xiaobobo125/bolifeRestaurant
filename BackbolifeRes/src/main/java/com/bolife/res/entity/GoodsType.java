@@ -11,9 +11,9 @@ import java.util.List;
  */
 @Data
 public class GoodsType {
-    private String gTid;
-    private String gTName;
-    private Integer gState;
+    private String gtId;
+    private String gtName;
+    private Integer gtState;
 
     private List<Goods> goods;
 }

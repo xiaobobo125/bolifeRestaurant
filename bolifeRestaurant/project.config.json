@@ -4,20 +4,18 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
-		"coverView": true,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false
+		"coverView": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.0",
-	"appid": "wx7df8b8346d2eb667",
-	"projectname": "bolifeRestaurant",
+	"libVersion": "2.10.2",
+	"appid": "wxb672ec957b6688d9",
+	"projectname": "mhzqx%E5%B0%8F%E7%A8%8B%E5%BA%8F",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

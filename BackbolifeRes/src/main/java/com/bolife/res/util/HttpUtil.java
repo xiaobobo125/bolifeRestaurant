@@ -40,7 +40,7 @@ public class HttpUtil {
 
             sb.deleteCharAt(sb.length() - 1); // 删除最后一个&
         }
-        // System.out.println(sb.toString());
+//        System.out.println(sb.toString());
         URL url = new URL(sb.toString());
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setConnectTimeout(5000); // 5s超时
