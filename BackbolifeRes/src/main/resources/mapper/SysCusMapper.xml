@@ -9,4 +9,15 @@
     <select id="selectSysCusById" resultMap="customerMap">
         SELECT * FROM syscus WHERE CUSID = #{cusId}
     </select>
+    <select id="selectAllSysCus" resultMap="customerMap">
+        SELECT * FROM syscus
+    </select>
+    <insert id="insert">
+      INSERT INTO syscus(CUSID,LIMITS,NICKNAME)
+      VALUES (#{sysCus.cusId},#{sysCus.limits},#{sysCus.nickName})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM syscus where CUSID=#{cusid}
+    </delete>
 </mapper>

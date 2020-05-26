@@ -17,12 +17,12 @@
               <view class="list-item" wx:for="{{orderlist}}" wx:key="orderindex" wx:for-index="orderindex">
                 <view class="user-box">
                   <image class="item-img" src="../img/uservatar.png"></image>
-                  <text class='dingdanbianhao'>编号:{{item.orderid}}</text>
+                  <text class='dingdanbianhao'>编号:{{item.orderId}}</text>
                 </view>
                 <view class="button-box">
-                  <text class="myfont1">¥{{item.orderTotlePrice}}</text>
-                  <button class="weui-btn mini-btn over-btn" type="primary" size="mini" data-id="{{orderlist[orderindex].orderid}}" bindtap="over">完成</button>
-                  <image class="item-icon" src="../img/jian.png" bindtap="cancel" data-id="{{orderlist[orderindex].orderid}}"></image>
+                  <text class="myfont1">¥{{item.orderTotalPrice}}</text>
+                  <button class="weui-btn mini-btn over-btn" type="primary" size="mini" data-id="{{orderlist[orderindex].orderId}}" bindtap="over">完成</button>
+                  <image class="item-icon" src="../img/jian.png" bindtap="cancel" data-id="{{orderlist[orderindex].orderId}}"></image>
                 </view>
               </view>
             </view>
@@ -30,27 +30,26 @@
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
           <view class='container'>
-          <image class='head-img' src='../img/logo.png' bindtap="gotouser"></image>
+          <image class='head-img' src='../img/show.png' bindtap="gotouser"></image>
             <view class='page-head-box'>
               <image class='add-img' src="../img/addicon.png" bindtap='open'></image>
             </view>
             <view class='list-box' wx:for="{{datalist}}" wx:for-index="dataindex">
-              <view class="title-text">{{datalist[dataindex].gt.GTNAME}}</view>
-              <view wx:for="{{datalist[dataindex].goodslist}}" wx:for-item="item" wx:key="{{item.GID}}">
+              <view class="title-text">{{datalist[dataindex].gtName}}</view>
+              <view wx:for="{{datalist[dataindex].goods}}" wx:for-item="item" wx:key="{{item.gid}}">
                 <view class='list-item-box'>
-                  <image class='item-img' src="{{serveraddr}}/images/{{item.GIMG}}" data-gtid="{{item.GTID}}" data-gid="{{item.GID}}" bindtap='goinfo'></image>
+                  <image class='item-img' src="{{serveraddr}}/images/{{item.gimg}}" data-gtid="{{item.gtId}}" data-gid="{{item.gid}}" bindtap='goinfo'></image>
                   <view class='item-info-box'>
-                    <view class='item-name'>{{item.GNAME}}</view>
-                    <text class='item-type'>{{item.GCONTENT}}</text>
-                    <view class='item-price'>{{item.GPRICE}}
-                      <text class='item-type'>/1份</text>
+                    <view class='item-name'>{{item.gname}}</view>
+                    <text class='item-type'>{{item.gcontent}}</text>
+                    <view class='item-price'>现价：{{item.gprice}}元/1份
                     </view>
-                    <view class='item-type'>原价：
+                    <!-- <view class='item-type'>原价：
                       <text class='gtime-text' style=' text-decoration: line-through;font-style: oblique;'>{{item.GPRICE}}</text>
-                    </view>
+                    </view> -->
                   </view>
                   <view class='item-icon-box '>
-                    <button class="weui-btn mini-btn" type="warn" bindtap="alertfood" size="mini" data-gtid="{{item.GTID}}" data-gid="{{item.GID}}">修改</button>
+                    <button class="weui-btn mini-btn" type="warn" bindtap="alertfood" size="mini" data-gtid="{{item.gtId}}" data-gid="{{item.gid}}">修改</button>
                   </view>
                 </view>
               </view>
@@ -64,9 +63,9 @@
                 <view wx:for="{{adminlist}}" class="list-item" wx:key="{{item.id}}">
                   <view class="user-box">
                     <image class="item-img" src="../img/uservatar.png"></image>
-                    <text class="item-text">{{item.NICKNAME}}</text>
+                    <text class="item-text">{{item.nickName}}</text>
                   </view>
-                  <image class="item-icon" src="../img/jian.png" bindtap="subtract" data-id='{{item.CUSID}}'></image>
+                  <image class="item-icon" src="../img/jian.png" bindtap="subtract" data-id='{{item.cusId}}'></image>
                 </view>
                 <form bindsubmit="submitadd" wx:if="{{addflag}}">
                   <view class="weui-cells__title">新管理员账号 :</view>

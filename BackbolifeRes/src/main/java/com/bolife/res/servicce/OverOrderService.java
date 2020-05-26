@@ -1,5 +1,6 @@
 package com.bolife.res.servicce;
 
+import com.bolife.res.entity.CusOrders;
 import com.bolife.res.entity.OverOrder;
 
 import java.util.List;
@@ -12,4 +13,6 @@ import java.util.List;
 public interface OverOrderService {
 
     public List<OverOrder> getOverOrderByCusId(String cusId);
+
+    void insertOrder(CusOrders cusOrders);
 }

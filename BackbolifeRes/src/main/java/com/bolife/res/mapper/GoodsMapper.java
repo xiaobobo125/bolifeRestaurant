@@ -14,4 +14,6 @@ import java.util.List;
 @Mapper
 public interface GoodsMapper {
     List<Goods> getGoodsByGtId(@Param("gtId") String gtId);
+
+    List<Goods> getAllGoods();
 }

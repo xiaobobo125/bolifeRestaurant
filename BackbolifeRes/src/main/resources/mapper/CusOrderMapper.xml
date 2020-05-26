@@ -17,4 +17,18 @@
             </if>
         </where>
     </select>
+    <select id="getOrderByOrder" resultMap="cusOrderMap">
+        SELECT * FROM cusorders WHERE ORDERID=#{orderId}
+    </select>
+    <select id="getAllOrder" resultMap="cusOrderMap">
+        SELECT * FROM cusorders
+    </select>
+    <insert id="insert" parameterType="com.bolife.res.entity.CusOrders">
+        INSERT INTO cusorders(ORDERID,CUSID,ORDERTIME,ORDERSTATE,ORDERTOTLEPRICE,ORDERNUM)
+        VALUES (#{orderId},#{cusId},#{orderTime},#{orderState},#{orderTotalPrice},#{orderNum})
+    </insert>
+
+    <delete id="deleteOrder">
+        DELETE FROM cusorders WHERE ORDERID=#{orderId}
+    </delete>
 </mapper>

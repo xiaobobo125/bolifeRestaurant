@@ -1,5 +1,7 @@
 package com.bolife.res.servicce.impl;
 
+import com.bolife.res.entity.CusOrders;
+import com.bolife.res.entity.Goods;
 import com.bolife.res.entity.OrderDetail;
 import com.bolife.res.mapper.OrderDetailMapper;
 import com.bolife.res.servicce.OrderDetailService;
@@ -20,5 +22,19 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     @Override
     public List<OrderDetail> getOrderDetailByOId(String orderId) {
         return orderDetailMapper.getOrderDetailByOId(orderId);
+    }
+
+    @Override
+    public void save(List<Goods> goods, CusOrders cusOrders) {
+        OrderDetail orderDetail = new OrderDetail();
+        for (Goods good : goods) {
+            orderDetail.setGId(good.getGId());
+            orderDetail.setGCount(good.getGCount().doubleValue());
+            orderDetail.setGName(good.getGName());
+            orderDetail.setGPrice(good.getGPrice().toString());
+            orderDetail.setGTime(good.getGTime());
+            orderDetail.setOrderId(cusOrders.getOrderId());
+            orderDetailMapper.insert(orderDetail);
+        }
     }
 }

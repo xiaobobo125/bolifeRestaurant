@@ -12,4 +12,8 @@
     <select id="getOrderDetailByOId" resultMap="orderDetailMap">
       SELECT * from orderdetail WHERE ORDERID = #{orderId}
     </select>
+    <insert id="insert" parameterType="com.bolife.res.entity.OrderDetail">
+        INSERT INTO orderdetail(GID,ORDERID,GNAME,GCOUNT,GPRICE,GTIME) VALUES
+        (#{gId},#{orderId},#{gName},#{gCount},#{gPrice},#{gTime})
+    </insert>
 </mapper>

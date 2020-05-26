@@ -13,4 +13,9 @@
     <select id="getOverOrderByCusId" resultMap="cusOrderMap">
         select * from overorder WHERE CUSID = #{cusId};
     </select>
+
+    <insert id="insert" parameterType="com.bolife.res.entity.OverOrder">
+        INSERT  INTO overorder(ORDERID,CUSID,ORDERTIME,ORDERSTATE,ORDERTOTLEPRICE,ORDERNUM)
+        VALUES (#{orderId},#{cusId},#{orderTime},#{orderState},#{orderTotlePrice},#{orderNum})
+    </insert>
 </mapper>

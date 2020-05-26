@@ -1,16 +1,16 @@
 <view class="container">
-   <image class='head-img' src='../img/logo.png'></image>
+   <image class='head-img' src='../img/show.png'></image>
   <form bindsubmit="submit">
   <!-- <view class="weui-uploader__input-box">
     <view class="weui-uploader__input myfont1" bindtap="chooseImage"></view>
   </view>
   <text class="up-text">重新上传图片</text>
     <view class="up-img-box">
-    <image src="{{files}}" class="up-img"></image>
+    <image src="{{files}}" class="up-img"></image> 
   </view> -->
     <view class="input-box">
       <view class="weui-cells__title">菜品名称 :</view>
-      <input class="weui-input" name='foodname' placeholder="{{foodinfo.GNAME}}" />
+      <input class="weui-input" name='foodname' placeholder="{{foodinfo.gname}}" />
     </view>
 
     <view class="input-box">
@@ -40,15 +40,15 @@
 
     <view class="input-box">
       <view class="weui-cells__title">菜品价格 :</view>
-      <input class="weui-input" name='foodprice' placeholder="现价：{{foodinfo.GPRICE}}" />
+      <input class="weui-input" name='foodprice' placeholder="现价：{{foodinfo.gprice}}" />
     </view>
     <view class="input-box">
       <view class="weui-cells__title">供应时间 :</view>
-      <input class="weui-input" name='foodtime' placeholder="{{foodinfo.GCONTENT}}" />
+      <input class="weui-input" name='foodtime' placeholder="{{foodinfo.gcontent}}" />
     </view>
     <view class="input-box">
       <view class="weui-cells__title">添加描详细述 :</view>
-      <textarea class="weui-textarea" name='fooddiscribe' placeholder="{{foodinfo.GINFO}}" style="min-height: 3.3em" />
+      <textarea class="weui-textarea" name='fooddiscribe' placeholder="{{foodinfo.ginfo}}" style="min-height: 3.3em" />
       <view class="weui-textarea-counter">0/200</view>
     </view>
     <view class="weui-btn-area">

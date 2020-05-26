@@ -21,7 +21,7 @@
           <!-- 导航栏对应内容 -->
           <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
             <view class='list-box' wx:for="{{mydata[0].goods}}" wx:key="{{item.gid}}">
-              <view class='list-item-box'>
+              <view class='list-item-box' >
                 <image class='item-img' src='{{serveraddr}}/images/{{item.gimg}}' data-gtid="{{item.gtId}}"data-gid="{{item.gid}}" bindtap='goinfo'></image>
                 <view class='item-info-box'>
                   <view class='item-name'>{{item.gname}}</view>
@@ -30,6 +30,7 @@
                     <text class='gtime-text' style=' text-decoration: line-through;font-style: oblique;'>{{item.gprice}}元</text>
                   </view> -->
                   <view class='item-price'>现价：{{item.gprice}}元/1份</view>
+                  <text class='item-type'>点击图片查看食品详情</text>
                 </view>
                 <view class='item-choise-box'>
                   <view class='item-icon-box '>
@@ -44,7 +45,7 @@
           <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
 
             <view class='list-box' wx:for="{{mydata[1].goods}}" wx:key="{{item.gid}}">
-              <view class='list-item-box'>
+              <view class='list-item-box' >
                  <image class='item-img' src="{{serveraddr}}/images/{{item.gimg}}" data-gtid="{{item.gtId}}"data-gid="{{item.gid}}" bindtap='goinfo'></image>
                 <view class='item-info-box'>
                   <view class='item-name'>{{item.gname}}</view>
@@ -53,6 +54,7 @@
                     <text class='gtime-text' style=' text-decoration: line-through;font-style: oblique;'>{{item.gprice}}元</text>
                   </view> -->
                   <view class='item-price'>现价：{{item.gprice}}元/1份</view>
+                  <text class='item-type'>点击图片查看食品详情</text>
                 </view>
                 <view class='item-choise-box'>
                   <view class='item-icon-box '>
@@ -66,7 +68,7 @@
           </view>
           <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
             <view class='list-box' wx:for="{{mydata[2].goods}}" wx:key="{{item.gid}}">
-              <view class='list-item-box'>
+              <view class='list-item-box' >
                  <image class='item-img' src="{{serveraddr}}/images/{{item.gimg}}" data-gtid="{{item.gtId}}"data-gid="{{item.gid}}" bindtap='goinfo'></image>
                 <view class='item-info-box'>
                   <view class='item-name'>{{item.gname}}</view>
@@ -75,6 +77,7 @@
                     <text class='gtime-text' style=' text-decoration: line-through;font-style: oblique;'>{{item.gprice}}元</text>
                   </view> -->
                   <view class='item-price'>现价：{{item.gprice}}元/1份</view>
+                  <text class='item-type'>点击图片查看食品详情</text>
                 </view>
                 <view class='item-choise-box'>
                   <view class='item-icon-box '>

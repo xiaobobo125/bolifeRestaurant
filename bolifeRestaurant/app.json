@@ -11,9 +11,7 @@
     "pages/severmenu/severmenu",
     "pages/severalertfood/severalertfood",
     "pages/info/info",
-    "pages/severinfo/severinfo",
-    "pages/pay/pay",
-    "pages/appraise/appraise"
+    "pages/severinfo/severinfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

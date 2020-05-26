@@ -15,4 +15,5 @@ import java.util.List;
 public interface OverOrderMapper {
     public List<OverOrder> getOverOrderByCusId(@Param("cusId") String cusId);
 
+    void insert(OverOrder overOrder);
 }

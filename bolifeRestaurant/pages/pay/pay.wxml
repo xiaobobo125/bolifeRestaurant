@@ -4,7 +4,7 @@
  <view class='myfont2'><text class='myfont1'>¥\t</text>{{sumprice}}</view>
  <view class="mybtn" bindtap="goorder">订单详情>></view>
 </view>
- <!-- 支付选项 -->
+ <!-- 支付选项 --> 
  <view class='paytype-box'>
         <view class="weui-cells weui-cells_after-title">
             <radio-group bindchange="radioChange">

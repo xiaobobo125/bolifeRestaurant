@@ -1,5 +1,6 @@
 package com.bolife.res.servicce.impl;
 
+import com.bolife.res.entity.CusOrders;
 import com.bolife.res.entity.OverOrder;
 import com.bolife.res.mapper.OverOrderMapper;
 import com.bolife.res.servicce.OverOrderService;
@@ -21,5 +22,16 @@ public class OverOrderServiceImpl implements OverOrderService {
     @Override
     public List<OverOrder> getOverOrderByCusId(String cusId) {
         return overOrderMapper.getOverOrderByCusId(cusId);
+    }
+
+    @Override
+    public void insertOrder(CusOrders cusOrders) {
+        OverOrder overOrder = new OverOrder();
+        overOrder.setCusId(cusOrders.getCusId());
+        overOrder.setOrderId(cusOrders.getOrderId());
+        overOrder.setOrderState(cusOrders.getOrderState());
+        overOrder.setOrderTime(cusOrders.getOrderTime());
+        overOrder.setOrderTotlePrice(cusOrders.getOrderTotalPrice());
+        overOrderMapper.insert(overOrder);
     }
 }

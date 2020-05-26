@@ -18,6 +18,8 @@ public class Goods {
     private Integer gTime;
     private Integer gCount;
     private String gInfo;
+    private String gComponent;
+    private String gSupper;
 
     private GoodsType goodsType;
 }

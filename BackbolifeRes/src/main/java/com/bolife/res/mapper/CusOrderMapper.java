@@ -15,4 +15,12 @@ import java.util.List;
 @Mapper
 public interface CusOrderMapper {
     List<CusOrders> getOrderByCus(@Param("customer") Customer customer);
+
+    void insert(CusOrders cusOrders);
+
+    List<CusOrders> getAllOrder();
+
+    void deleteOrder(@Param("orderId") String orderid);
+
+    CusOrders getOrderByOrder(@Param("orderId") String orderid);
 }

@@ -32,8 +32,9 @@ Page({
       url: app.globalData.serveraddr + '/admin',
       data: {},
       success: res => {
+        console.log(res);
         that.setData({
-          adminlist: res.data.res
+          adminlist: res.data.datalist
         })
       }
     })
@@ -41,8 +42,9 @@ Page({
       url: app.globalData.serveraddr + '/foodadmin',
       data: {},
       success: res => {
+        console.log(res);
         this.setData({
-          datalist: res.data
+          datalist: res.data.datalist
         })
       }
     })
@@ -139,10 +141,10 @@ Page({
   alertfood: function (e) {
     var list = this.data.datalist;
     for (var i = 0; i < list.length; i++) {
-      if (list[i].gt.GTID == e.currentTarget.dataset.gtid) {
-        var glist = list[i].goodslist
+      if (list[i].gtId == e.currentTarget.dataset.gtid) {
+        var glist = list[i].goods
         for (var j = 0; j < glist.length; j++) {
-          if (glist[j].GID == e.currentTarget.dataset.gid) {
+          if (glist[j].gid == e.currentTarget.dataset.gid) {
             wx.navigateTo({
               url: '../severalertfood/severalertfood?foodinfo=' + JSON.stringify(glist[j])
             })
@@ -181,7 +183,7 @@ Page({
       },
       success: res => {
         this.setData({
-          adminlist: res.data.res,
+          adminlist: res.data.datalist,
           addflag: false,
         })
         console.log(res.data.res);
@@ -198,9 +200,9 @@ Page({
       },
       success: res => {
         this.setData({
-          adminlist: res.data.res
+          adminlist: res.data.datalist,
         })
-        console.log(res.data.res);
+        console.log(res.data.datalist,);
       }
     })
   },
@@ -218,7 +220,7 @@ Page({
         orderid: e.target.dataset.id,
       },
       success: res => {
-        if (res.data.result.code == 200) {
+        if (res.data.code == 200) {
           wx.showToast({
             title: '订单已取消',
             icon: 'success',
@@ -251,7 +253,7 @@ Page({
         orderid: e.target.dataset.id,
       },
       success: res => {
-        if (res.data.result.code == 200) {
+        if (res.data.code == 200) {
           wx.showToast({
             title: '订单已完成',
             icon: 'success',

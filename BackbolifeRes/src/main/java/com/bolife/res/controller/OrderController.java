@@ -1,10 +1,8 @@
 package com.bolife.res.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.bolife.res.entity.CusOrders;
-import com.bolife.res.entity.Customer;
-import com.bolife.res.entity.OrderDetail;
-import com.bolife.res.entity.OverOrder;
+import com.bolife.res.entity.*;
 import com.bolife.res.servicce.CusOrderService;
 import com.bolife.res.servicce.OrderDetailService;
 import com.bolife.res.servicce.OverOrderService;
@@ -24,7 +22,6 @@ import java.util.Map;
  * @Date: 2020/5/25 13:29
  * @Description:
  */
-@RequestMapping("/order")
 @Controller
 public class OrderController {
     @Autowired(required = false)
@@ -37,7 +34,7 @@ public class OrderController {
     private OrderDetailService orderDetailService;
 
     @ResponseBody
-    @RequestMapping(value = "/getOrders",method = RequestMethod.GET)
+    @RequestMapping(value = "/order/getOrders",method = RequestMethod.GET)
     public Map<String,Object> getOrders(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
         Map<String, String[]> parameterMap = request.getParameterMap();
@@ -67,4 +64,47 @@ public class OrderController {
         return jsonObject;
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/order",method = RequestMethod.POST)
+    public Map<String,Object> payOrder(HttpServletRequest request) {
+        JSONObject jsonObject = new JSONObject();
+        String foodlist = request.getParameter("foodlist");
+        String cusid = request.getParameter("cusid");
+        List<Goods> goods = JSONArray.parseArray(foodlist, Goods.class);
+        CusOrders cusOrders = cusOrderService.saveOrder(goods, cusid);
+        orderDetailService.save(goods,cusOrders);
+        return  jsonObject;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/order/getOrderAdmin",method = RequestMethod.GET)
+    public Map<String,Object> getOrderAdmin(HttpServletRequest request) {
+        JSONObject jsonObject = new JSONObject();
+        List<CusOrders> allOrder = cusOrderService.getAllOrder();
+        jsonObject.put("cusOrderArr",allOrder);
+        return  jsonObject;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/order/orderAdminCancel",method = RequestMethod.GET)
+    public Map<String,Object> orderAdminCancel(HttpServletRequest request) {
+        JSONObject jsonObject = new JSONObject();
+        String orderid = request.getParameter("orderid");
+        cusOrderService.deleteOrder(orderid);
+        jsonObject.put("code",200);
+        jsonObject.put("msg","订单取消成功");
+        return  jsonObject;
+    }
+    @ResponseBody
+    @RequestMapping(value = "/order/orderAdminOver",method = RequestMethod.GET)
+    public Map<String,Object> orderAdminOver(HttpServletRequest request) {
+        JSONObject jsonObject = new JSONObject();
+        String orderid = request.getParameter("orderid");
+        CusOrders cusOrders = cusOrderService.getORderByOrderId(orderid);
+        overOrderService.insertOrder(cusOrders);
+        cusOrderService.deleteOrder(orderid);
+        jsonObject.put("code",200);
+        jsonObject.put("msg","订单已完成！");
+        return  jsonObject;
+    }
 }

@@ -1,5 +1,7 @@
 package com.bolife.res.servicce;
 
+import com.bolife.res.entity.CusOrders;
+import com.bolife.res.entity.Goods;
 import com.bolife.res.entity.OrderDetail;
 
 import java.util.List;
@@ -12,4 +14,5 @@ import java.util.List;
 public interface OrderDetailService {
     public List<OrderDetail> getOrderDetailByOId(String orderId);
 
+    void save(List<Goods> goods, CusOrders cusOrders);
 }

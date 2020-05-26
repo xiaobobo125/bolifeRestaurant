@@ -23,4 +23,9 @@ public class GoodsServiceImpl implements GoodsService{
     public List<Goods> getGoodsByGtId(String gtId) {
         return goodsMapper.getGoodsByGtId(gtId);
     }
+
+    @Override
+    public List<Goods> getAllGoods() {
+        return goodsMapper.getAllGoods();
+    }
 }

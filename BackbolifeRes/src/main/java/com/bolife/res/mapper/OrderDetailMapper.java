@@ -14,4 +14,6 @@ import java.util.List;
 @Mapper
 public interface OrderDetailMapper {
     List<OrderDetail> getOrderDetailByOId(@Param("orderId") String orderId);
+
+    void insert(OrderDetail orderDetail);
 }

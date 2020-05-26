@@ -5,41 +5,27 @@
     <view class='h-name'>{{foodinfo.gname}}</view>
     <view class='myfont2'>{{foodinfo.gprice}}<text class="myfont1">¥/份儿</text></view>
   </view>
-  <text class='myfont1'>相关推荐</text>
-  <!-- 轮播图 -->
-  <view class="swiper-container">
-
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" display-multiple-items="3"class="swiper">
-      <block wx:for="{{contactList}}" wx:key="unique">
-        <swiper-item>
-          <image src="../img/{{item.gimg}}" class="img"  data-gid="{{item.gid}}" bindtap='goinfo'/>
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
+  <text class="underline"></text>
   <view class='page-content-box'>
     <view class="weui-article">
             <view class="weui-article__h1">详细信息：</view>
             <view class="weui-article__section">
                 <view class="weui-article__section">
-                <view class="weui-article__h3">食材主要成分</view>
-                    <view class="weui-article__p">{{foodinfo.ginfo.component}}</view>
+                <view class="weui-article__h3">  食材主要成分:</view>
+                    <view class="weui-article__p">  {{foodinfo.gcomponent}}</view>
                 </view>
                    <view class="weui-article__section">
-                <view class="weui-article__h3">食材提供</view>
-                    <view class="weui-article__p">{{foodinfo.ginfo.supplier}}</view>
+                <view class="weui-article__h3">  食材提供:</view>
+                    <view class="weui-article__p">  {{foodinfo.gsupper}}</view>
                 </view>
                    <view class="weui-article__section">
-                <view class="weui-article__h3">菜品描述</view>
-                    <view class="weui-article__p">{{foodinfo.ginfo.describe}}</view>
+                <view class="weui-article__h3">  菜品描述:</view>
+                    <view class="weui-article__p">  {{foodinfo.ginfo}}</view>
                 </view>
             </view>
         </view>
     <view class='appraise-box'>
-      <navigator url="../appraise/appraise" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-        <view class="weui-cell__bd">用户评价</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access myfont1">{{foodinfo.gremark}}条评论</view>
-      </navigator>
+      <view class="weui-cell__bd">用户满意度</view>
       <view class="appraise-content">
         <view class='appraise-item-box'>
           <text class='myfont1'>图片真实度</text>
@@ -70,6 +56,17 @@
         </view>
       </view>
     </view>
+    <text class='myfont1'>猜你喜欢</text>
+  <!-- 轮播图 -->
+  <view class="swiper-container">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" display-multiple-items="1"class="swiper">
+      <block wx:for="{{contactList}}" wx:key="unique">
+        <swiper-item>
+          <image src="../img/{{item.gimg}}" class="img"  data-gid="{{item.gid}}" bindtap='goinfo'/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
 
   </view>
 </view>

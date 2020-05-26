@@ -11,5 +11,5 @@ import java.util.List;
  */
 public interface GoodsService {
     public List<Goods> getGoodsByGtId(String gtId);
-
+    List<Goods> getAllGoods();
 }

@@ -1,6 +1,6 @@
 <!--client/pages/pay/pay.wxml-->
 <view class='page-head-box'>
-  <image class='head-img' src='../img/logo.png'></image>
+  <image class='head-img' src='../img/show.png'></image>
   <view class='wel-title'>开业惠顾,满30元送扎啤~</view>
 </view>
 <view class='contioner'>

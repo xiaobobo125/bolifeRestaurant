@@ -11,8 +11,13 @@
         <result property="gTime" column="GTIME"/>
         <result property="gCount" column="GCOUNT"/>
         <result property="gInfo" column="GINFO"/>
+        <result property="gComponent" column="GCOMPONENT"/>
+        <result property="gSupper" column="GSUPPER"/>
     </resultMap>
     <select id="getGoodsByGtId" resultMap="gMap">
         SELECT * from goods WHERE GTID = #{gtId}
+    </select>
+    <select id="getAllGoods" resultMap="gMap">
+        SELECT * from goods
     </select>
 </mapper>

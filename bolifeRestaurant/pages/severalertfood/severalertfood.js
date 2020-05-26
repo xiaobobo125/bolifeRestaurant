@@ -42,33 +42,33 @@ Page({
       foodinfo: JSON.parse(e.foodinfo)
     })
     this.setData({
-      files: `${app.globalData.serveraddr}/images/${this.data.foodinfo.GIMG}`
+      files: `${app.globalData.serveraddr}/images/${this.data.foodinfo.gimg}`
     })
     console.log(this.data.files)
-    this.data.radioItems[this.data.foodinfo.GTID - 1].checked = true;
+    this.data.radioItems[this.data.foodinfo.gtId - 1].checked = true;
     this.setData({
       radioItems: this.data.radioItems
     })
     var radioItems = []
-    wx.request({
-      url: app.globalData.serveraddr + '/foodadmin/getGoodType',
-      success: res => {
-        for (let i = 0; i < res.data.goodstypes.length; i++) {
-          var items = {}
-          items.name = res.data.goodstypes[i].GTNAME
-          items.value = res.data.goodstypes[i].GTID - 1
-          if (res.data.goodstypes[i].GTID == 1) {
-            items.checked = true
-          } else {
-            items.checked = false
-          }
-          radioItems.push(items)
-        }
-        this.setData({
-          radioItems: radioItems
-        })
-      }
-    })
+    // wx.request({
+    //   url: app.globalData.serveraddr + '/foodadmin/getGoodType',
+    //   success: res => {
+    //     for (let i = 0; i < res.data.goodstypes.length; i++) {
+    //       var items = {}
+    //       items.name = res.data.goodstypes[i].gtname
+    //       items.value = res.data.goodstypes[i].gtId - 1
+    //       if (res.data.goodstypes[i].gtId == 1) {
+    //         items.checked = true
+    //       } else {
+    //         items.checked = false
+    //       }
+    //       radioItems.push(items)
+    //     }
+    //     this.setData({
+    //       radioItems: radioItems
+    //     })
+    //   }
+    // })
   },
 
   /**
