@@ -23,4 +23,13 @@ public class GoodsTypeServiceImpl implements GoodsTypeService {
     public List<GoodsType> getAllGoodsType() {
         return goodsTypeMapper.getAllGoodsType();
     }
+
+    @Override
+    public void addType(String newtypename, String gtid) {
+        GoodsType goodsType = new GoodsType();
+        goodsType.setGtId(gtid);
+        goodsType.setGtName(newtypename);
+        goodsType.setGtState(1);
+        goodsTypeMapper.insert(goodsType);
+    }
 }

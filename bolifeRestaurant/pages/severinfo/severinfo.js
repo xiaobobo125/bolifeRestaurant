@@ -49,15 +49,13 @@ Page({
   },
   // 自定义函数
   cut: function() {
-
-    console.log(this.data.foodinfo.GID)
     wx.request({
       url: app.globalData.serveraddr + '/foodadmin/uninstall',
       data: {
-        foodinfo:this.data.foodinfo.GID,
+        foodinfo:this.data.foodinfo.gid,
       },
       success(res) {
-        if (res.data.result.code == 200) {
+        if (res.data.code == 200) {
           wx.showToast({
             title: '下架成功',
             icon: 'success',

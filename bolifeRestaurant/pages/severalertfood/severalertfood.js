@@ -12,21 +12,7 @@ Page({
       "gtname": "主食",
       checked: false,
     },
-    radioItems: [{
-      name: '主食',
-      value: '0',
-      checked: false,
-    },
-    {
-      name: '水果',
-      value: '1',
-      checked: false,
-    },
-    {
-      name: '甜点',
-      value: '2',
-      checked: false,
-    }
+    radioItems: [
     ],
     files: [],
     newtypename: null,
@@ -44,31 +30,32 @@ Page({
     this.setData({
       files: `${app.globalData.serveraddr}/images/${this.data.foodinfo.gimg}`
     })
-    console.log(this.data.files)
-    this.data.radioItems[this.data.foodinfo.gtId - 1].checked = true;
-    this.setData({
-      radioItems: this.data.radioItems
-    })
-    var radioItems = []
-    // wx.request({
-    //   url: app.globalData.serveraddr + '/foodadmin/getGoodType',
-    //   success: res => {
-    //     for (let i = 0; i < res.data.goodstypes.length; i++) {
-    //       var items = {}
-    //       items.name = res.data.goodstypes[i].gtname
-    //       items.value = res.data.goodstypes[i].gtId - 1
-    //       if (res.data.goodstypes[i].gtId == 1) {
-    //         items.checked = true
-    //       } else {
-    //         items.checked = false
-    //       }
-    //       radioItems.push(items)
-    //     }
-    //     this.setData({
-    //       radioItems: radioItems
-    //     })
-    //   }
+    // console.log(this.data.files)
+    // this.data.radioItems[this.data.foodinfo.gtId - 1].checked = true;
+    // this.setData({
+    //   radioItems: this.data.radioItems
     // })
+    var radioItems = []
+    wx.request({
+      url: app.globalData.serveraddr + '/foodadmin/getGoodType',
+      success: res => {
+        for (let i = 0; i < res.data.goodstypes.length; i++) {
+          var items = {}
+          items.name = res.data.goodstypes[i].gtName
+          items.value = res.data.goodstypes[i].gtId - 1
+          if (res.data.goodstypes[i].gtId == 1) {
+            items.checked = true
+          } else {
+            items.checked = false
+          }
+          radioItems.push(items)
+        }
+        console.log(radioItems);
+        this.setData({
+          radioItems: radioItems
+        })
+      }
+    })
   },
 
   /**
@@ -167,15 +154,16 @@ Page({
     });
   },
   submit: function (e) {
+    
     if (e.detail.value.foodname != '')
-      this.data.foodinfo.GNAME = e.detail.value.foodname;
+      this.data.foodinfo.gname = e.detail.value.foodname;
     if (e.detail.value.foodprice != '') {
-      this.data.foodinfo.GPRICE = e.detail.value.foodprice;
+      this.data.foodinfo.gprice = e.detail.value.foodprice;
     }
     if (e.detail.value.foodtime != '')
-      this.data.foodinfo.GCONTENT = e.detail.value.foodtime;
+      this.data.foodinfo.gcontent = e.detail.value.foodtime;
     if (e.detail.value.fooddiscribe != '')
-      this.data.foodinfo.GINFO = e.detail.value.fooddiscribe;
+      this.data.foodinfo.ginfo = e.detail.value.fooddiscribe;
     // this.data.foodinfo.GIMG = this.data.files;
     for (var i = 0; i < this.data.radioItems.length; i++) {
       if (this.data.radioItems[i].checked == true)
@@ -184,7 +172,7 @@ Page({
     this.setData({
       foodinfo: this.data.foodinfo,
     });
-
+    console.log(this.data.foodinfo);
     wx.request({
       url: app.globalData.serveraddr + '/foodadmin/alert',
       data: {
@@ -192,7 +180,7 @@ Page({
       },
       success: res => {
         console.log(res)
-        if (res.data.result.code == 200) {
+        if (res.data.code == 200) {
           wx.showToast({
             title: '提交成功',
             icon: 'success',

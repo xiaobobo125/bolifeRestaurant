@@ -131,7 +131,7 @@ Page({
   gotouser: function () {
     wx.navigateTo({
       url: '../menu/menu',
-    })
+    }) 
   },
   open: function () {
     wx.navigateTo({
@@ -156,10 +156,10 @@ Page({
   goinfo: function (e) {
     var list = this.data.datalist;
     for (var i = 0; i < list.length; i++) {
-      if (list[i].gt.GTID == e.currentTarget.dataset.gtid) {
-        var glist = list[i].goodslist
+      if (list[i].gtId == e.currentTarget.dataset.gtid) {
+        var glist = list[i].goods
         for (var j = 0; j < glist.length; j++) {
-          if (glist[j].GID == e.currentTarget.dataset.gid) {
+          if (glist[j].gid == e.currentTarget.dataset.gid) {
             wx.navigateTo({
               url: '../severinfo/severinfo?foodinfo=' + JSON.stringify(glist[j])
             })

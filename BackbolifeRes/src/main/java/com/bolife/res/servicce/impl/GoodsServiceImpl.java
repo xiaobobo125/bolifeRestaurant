@@ -28,4 +28,24 @@ public class GoodsServiceImpl implements GoodsService{
     public List<Goods> getAllGoods() {
         return goodsMapper.getAllGoods();
     }
+
+    @Override
+    public void update(Goods goods) {
+        goodsMapper.update(goods);
+    }
+
+    @Override
+    public void delete(String goodId) {
+        goodsMapper.delete(goodId);
+    }
+
+    @Override
+    public Goods getGoodsById(String goodId) {
+        return goodsMapper.getGoodById(goodId);
+    }
+
+    @Override
+    public void insert(Goods goods) {
+        goodsMapper.insert(goods);
+    }
 }

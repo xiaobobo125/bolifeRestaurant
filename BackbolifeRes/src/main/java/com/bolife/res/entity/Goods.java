@@ -12,6 +12,7 @@ public class Goods {
     private String gId;
     private String gtId;
     private String gName;
+    private Integer gState;
     private Double gPrice;
     private String gContent;
     private String gImg;
@@ -22,4 +23,5 @@ public class Goods {
     private String gSupper;
 
     private GoodsType goodsType;
+
 }

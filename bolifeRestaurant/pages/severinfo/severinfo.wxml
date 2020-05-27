@@ -1,9 +1,9 @@
 <!--client/pages/info/info.wxml-->
 <view class='container'>
   <view class='page-head'>
-    <image class='food-img' src="{{serveraddr}}/images/{{foodinfo.GIMG}}"></image>
-    <view class='h-name'>{{foodinfo.GNAME}}</view>
-    <view class='myfont2'>{{foodinfo.GPRICE}}
+    <image class='food-img' src="{{serveraddr}}/images/{{foodinfo.gimg}}"></image>
+    <view class='h-name'>{{foodinfo.gname}}</view>
+    <view class='myfont2'>{{foodinfo.gprice}}
       <text class="myfont1">¥/份儿</text>
     </view>
   </view>
@@ -12,13 +12,12 @@
       <view class="weui-article__h1">详细信息：</view>
       <view class="weui-article__section">
         <view class="weui-article__h3">菜品描述</view>
-        <view class="weui-article__p">{{foodinfo.GINFO}}</view>
+        <view class="weui-article__p">{{foodinfo.ginfo}}</view>
       </view>
     </view>
     <view class='appraise-box'>
       <navigator url="../appraise/appraise" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-        <view class="weui-cell__bd">用户评价</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access myfont1">233条评论</view>
+        <view class="weui-cell__bd">用户满意度</view>
       </navigator>
       <view class="appraise-content">
         <view class='appraise-item-box'>

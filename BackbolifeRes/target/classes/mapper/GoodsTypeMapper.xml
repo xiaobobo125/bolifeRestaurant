@@ -10,4 +10,8 @@
     <select id="getAllGoodsType" resultMap="gtMap">
         SELECT * from goodstype
     </select>
+    <insert id="insert" parameterType="com.bolife.res.entity.GoodsType">
+        INSERT  INTO  goodstype(GTID,GTNAME,GTSTATE)
+        VALUES (#{goodsType.gtId},#{goodsType.gtName},#{goodsType.gtState})
+    </insert>
 </mapper>

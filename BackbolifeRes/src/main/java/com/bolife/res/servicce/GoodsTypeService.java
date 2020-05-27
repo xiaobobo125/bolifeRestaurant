@@ -13,4 +13,5 @@ public interface GoodsTypeService {
 
     public List<GoodsType> getAllGoodsType();
 
+    void addType(String newtypename, String gtid);
 }

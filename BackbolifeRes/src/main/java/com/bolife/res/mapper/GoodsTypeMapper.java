@@ -2,6 +2,7 @@ package com.bolife.res.mapper;
 
 import com.bolife.res.entity.GoodsType;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ import java.util.List;
 @Mapper
 public interface GoodsTypeMapper {
     List<GoodsType> getAllGoodsType();
+
+    void insert(@Param("goodsType") GoodsType goodsType);
 }

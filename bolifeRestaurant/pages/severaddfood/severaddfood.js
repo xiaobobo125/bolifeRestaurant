@@ -41,9 +41,9 @@ Page({
       success: res => {
         for (let i = 0; i < res.data.goodstypes.length; i++) {
           var items = {}
-          items.name = res.data.goodstypes[i].GTNAME
-          items.value = res.data.goodstypes[i].GTID - 1
-          if (res.data.goodstypes[i].GTID == 1) {
+          items.name = res.data.goodstypes[i].gtName
+          items.value = res.data.goodstypes[i].gtId - 1
+          if (res.data.goodstypes[i].gtId == 1) {
             items.checked = true
           } else {
             items.checked = false
@@ -201,6 +201,9 @@ Page({
               }
             }
           }
+          this.data.foodinfo.gtime = e.detail.value.overtime;
+          this.data.foodinfo.gcomponent = e.detail.value.foodcomponent;
+          this.data.foodinfo.gsupper = e.detail.value.foodsupper;
         }
       }
     }
@@ -222,7 +225,7 @@ Page({
         },
         success: res => {
           console.log(res)
-          if (res.data.result.code == 200) {
+          if (res.data.code == 200) {
             wx.showToast({
               title: '提交成功',
               icon: 'success',
@@ -263,19 +266,19 @@ Page({
       }
     }
 
-    wx.uploadFile({
-      url: app.globalData.serveraddr + '/foodadmin/addGoodsImg', //app.ai_api.File.file
-      filePath: that.data.files[0],  //文件路径  这里是mp3文件
-      name: 'fileImg',  //随意
-      formData: {
-        'user': 'test'
-      },
-      success(res) {
-        const data = res.data
-        console.log(res)
-        //do something
-      }
-    })
+    // wx.uploadFile({
+    //   url: app.globalData.serveraddr + '/foodadmin/addGoodsImg', //app.ai_api.File.file
+    //   filePath: that.data.files[0],  //文件路径  这里是mp3文件
+    //   name: 'fileImg',  //随意
+    //   formData: {
+    //     'user': 'test'
+    //   },
+    //   success(res) {
+    //     const data = res.data
+    //     console.log(res)
+    //     //do something
+    //   }
+    // })
   },
 
 })

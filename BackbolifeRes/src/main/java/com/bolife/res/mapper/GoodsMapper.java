@@ -16,4 +16,12 @@ public interface GoodsMapper {
     List<Goods> getGoodsByGtId(@Param("gtId") String gtId);
 
     List<Goods> getAllGoods();
+
+    void update(@Param("goods") Goods goods);
+
+    void delete(@Param("goodId") String goodId);
+
+    Goods getGoodById(@Param("goodId") String goodId);
+
+    void insert(@Param("goods") Goods goods);
 }

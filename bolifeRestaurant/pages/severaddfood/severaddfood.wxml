@@ -1,6 +1,6 @@
 <!--pages/severaddfood/severaddfood.wxml-->
 <view class="container">
-   <image class='head-img' src='../img/logo.png'></image>
+   <image class='head-img' src='../img/show.png'></image>
   <form bindsubmit="submit">
     <view class="input-box">
       <view class="weui-cells__title">菜品名称 :</view>
@@ -38,11 +38,23 @@
     </view>
     <view class="input-box">
       <view class="weui-cells__title">供应时间 :</view>
-      <input class="weui-input" name='foodtime' placeholder="多久可以点呢" />
+      <input class="weui-input" name='foodtime' placeholder="什么时候供应呢?" />
+    </view>
+    <view class="input-box">
+      <view class="weui-cells__title">成品预计时间 :</view>
+      <input class="weui-input" name='overtime' placeholder="顾客什么时候可以吃到呢?" />
+    </view>
+    <view class="input-box">
+      <view class="weui-cells__title">原材料 :</view>
+      <input class="weui-input" name='foodcomponent' placeholder="原材料呢" />
+    </view>
+    <view class="input-box">
+      <view class="weui-cells__title">供应商 :</view>
+      <input class="weui-input" name='foodsupper' placeholder="来自那呢" />
     </view>
     <view class="input-box">
       <view class="weui-cells__title">添加描详细述 :</view>
-      <textarea class="weui-textarea" name='fooddiscribe' placeholder="原材料 供应商 菜品描述" style="min-height: 3.3em" />
+      <textarea class="weui-textarea" name='fooddiscribe' placeholder="菜品描述" style="min-height: 3.3em" />
       <view class="weui-textarea-counter">0/200</view>
     </view>
 

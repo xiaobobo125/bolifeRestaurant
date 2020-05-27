@@ -1,13 +1,13 @@
 <view class="container">
    <image class='head-img' src='../img/show.png'></image>
   <form bindsubmit="submit">
-  <!-- <view class="weui-uploader__input-box">
+  <view class="weui-uploader__input-box">
     <view class="weui-uploader__input myfont1" bindtap="chooseImage"></view>
   </view>
   <text class="up-text">重新上传图片</text>
     <view class="up-img-box">
     <image src="{{files}}" class="up-img"></image> 
-  </view> -->
+  </view> 
     <view class="input-box">
       <view class="weui-cells__title">菜品名称 :</view>
       <input class="weui-input" name='foodname' placeholder="{{foodinfo.gname}}" />
@@ -53,6 +53,6 @@
     </view>
     <view class="weui-btn-area">
       <button class="weui-btn" type="primary" form-type='submit'>提交</button>
-    </view>
+    </view> 
   </form>
 </view>
