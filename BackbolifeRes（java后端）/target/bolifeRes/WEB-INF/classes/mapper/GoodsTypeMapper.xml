@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bolife.res.mapper.GoodsTypeMapper">
+    <resultMap id="gtMap" type="com.bolife.res.entity.GoodsType">
+        <result property="gtId" column="GTID"/>
+        <result property="gtName" column="GTNAME"/>
+        <result property="gtState" column="GTSTATE"/>
+    </resultMap>
+
+    <select id="getAllGoodsType" resultMap="gtMap">
+        SELECT * from goodstype
+    </select>
+    <insert id="insert" parameterType="com.bolife.res.entity.GoodsType">
+        INSERT  INTO  goodstype(GTID,GTNAME,GTSTATE)
+        VALUES (#{goodsType.gtId},#{goodsType.gtName},#{goodsType.gtState})
+    </insert>
+</mapper>

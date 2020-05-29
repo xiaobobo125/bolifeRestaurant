@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bolife.res.mapper.GoodsMapper">
+    <resultMap id="gMap" type="com.bolife.res.entity.Goods">
+        <result property="gId" column="GID"/>
+        <result property="gtId" column="GTID"/>
+        <result property="gName" column="GNAME"/>
+        <result property="gState" column="GSTATE"/>
+        <result property="gPrice" column="GPRICE"/>
+        <result property="gContent" column="GCONTENT"/>
+        <result property="gImg" column="GIMG"/>
+        <result property="gTime" column="GTIME"/>
+        <result property="gCount" column="GCOUNT"/>
+        <result property="gInfo" column="GINFO"/>
+        <result property="gComponent" column="GCOMPONENT"/>
+        <result property="gSupper" column="GSUPPER"/>
+    </resultMap>
+    <select id="getGoodsByGtId" resultMap="gMap">
+        SELECT * from goods WHERE GTID = #{gtId} AND GSTATE=1
+    </select>
+    <select id="getGoodById" resultMap="gMap">
+        SELECT * from goods WHERE GID = #{goodId}
+    </select>
+    <select id="getAllGoods" resultMap="gMap">
+        SELECT * from goods WHERE GSTATE=1
+    </select>
+    <update id="update" parameterType="com.bolife.res.entity.Goods">
+        UPDATE goods SET
+        <if test="goods!=null">
+            <if test="goods.gtId!=null">
+                GTID = #{goods.gtId},
+            </if>
+            <if test="goods.GName!=null">
+                GNAME = #{goods.GName},
+            </if>
+            <if test="goods.GState!=null">
+                GSTATE = #{goods.GState},
+            </if>
+            <if test="goods.GContent != null">
+                GCONTENT = #{goods.GContent},
+            </if>
+            <if test="goods.GPrice != null">
+                GPRICE = #{goods.GPrice},
+            </if>
+            <if test="goods.GImg != null">
+                GIMG = #{goods.GImg},
+            </if>
+            <if test="goods.GTime != null">
+                GTIME = #{goods.GTime},
+            </if>
+            <if test="goods.GCount != null">
+                GCOUNT = #{goods.GCount},
+            </if>
+            <if test="goods.GInfo != null">
+                GINFO = #{goods.GInfo},
+            </if>
+            <if test="goods.GComponent != null">
+                GCOMPONENT = #{goods.GComponent},
+            </if>
+            <if test="goods.GSupper != null">
+                GSUPPER = #{goods.GSupper}
+            </if>
+            WHERE GID=#{goods.GId}
+        </if>
+    </update>
+    <delete id="delete">
+        DELETE FROM goods WHERE GID=#{goodId}
+    </delete>
+
+    <insert id="insert" parameterType="com.bolife.res.entity.Goods">
+        INSERT INTO goods(GID,GTID,GNAME,GSTATE,GPRICE,GCONTENT,GIMG,GTIME,GCOUNT,GINFO,GCOMPONENT,GSUPPER)
+        VALUES (#{goods.gId},#{goods.gtId},#{goods.gName},#{goods.gState},#{goods.gPrice},#{goods.gContent},#{goods.gImg},#{goods.gTime},#{goods.gCount},#{goods.gInfo},#{goods.gComponent},#{goods.gSupper})
+    </insert>
+
+</mapper>

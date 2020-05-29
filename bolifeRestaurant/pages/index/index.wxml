@@ -1,7 +1,0 @@
-<!--pages/index/index.wxml-->
-<view class="content1">
-  <image class='shows-img' src='../img/show.png'></image>
-  <text class="gettitle">开发者将获取一些用户权限</text>
-  <text class="getinfo">·获取你的公开信息（昵称、头像等）</text>
-  <button class='click-btn' type='primary' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">微信登录</button>
-</view>
